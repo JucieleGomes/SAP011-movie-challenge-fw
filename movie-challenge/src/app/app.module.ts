@@ -12,6 +12,8 @@ import { PagesComponent } from './components/pages/pages.component';
 import { CommonComponentsComponent } from './components/common-components/common-components.component';
 import { HttpClientModule} from '@angular/common/http';
 import { MoviesDataBaseService } from './services/movies-data-base.service';
+import { MovieContainerComponent } from './components/pages/home/movie-container/movie-container.component';
+import { TopContentComponent } from './components/pages/home/top-content/top-content.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MoviesDataBaseService } from './services/movies-data-base.service';
     FooterComponent,
     ComponentsComponent,
     PagesComponent,
-    CommonComponentsComponent
+    CommonComponentsComponent,
+    MovieContainerComponent,
+    TopContentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MoviesDataBaseService } from 'src/app/services/movies-data-base.service';
 
 @Component({
@@ -6,16 +6,27 @@ import { MoviesDataBaseService } from 'src/app/services/movies-data-base.service
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit
+{
+movies: any[]=[];
 
   constructor(
     private readonly _SERVICE: MoviesDataBaseService 
-  ){ this._SERVICE.getMovies().subscribe({
-    next: (data:any)=>{
-    console.log(data);
-    }
-  })
+  ){
 
+  }
+
+  ngOnInit(): void {
+    this.loadMovies();
+  }
+
+  loadMovies(){
+    this._SERVICE.getMovies().subscribe({
+      next: (data:any)=>{
+      console.log(data);
+      this.movies = data.results;
+      }
+    })
   }
 
 }
