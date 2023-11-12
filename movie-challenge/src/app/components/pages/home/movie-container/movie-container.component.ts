@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./movie-container.component.css']
 })
 export class MovieContainerComponent {
-  //aqui o movie-container receve movies do componente pai
+  //aqui o movie-container recebe movies do componente pai
   // a home para poder usar em seu escopo
 @Input() movies: any []=[];
 }

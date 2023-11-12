@@ -5,27 +5,24 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: -230px;
+    text-align: center;
 }
 
 #movie-title{
     font-size: 15px;
     font-style: normal;
     font-family: helvetica;
-    flex-wrap: wrap;
     word-break: break-word;
-    justify-content: center;
-    width: 60%;
+    max-width: 80%;
+    margin: auto;
 }
 
 #movie-date{
-    margin-top: -15px;
-    justify-content: center;
+ margin-top: 5px;
 }
 
 h4{
-    color: rgb(206, 199, 199);
-    justify-self: center;
-   
+    color: rgb(206, 199, 199);  
 }
 
 #movie-poster {
@@ -35,4 +32,5 @@ h4{
 #movie-poster:hover {
     transform: scale(1.1); 
 }
+
 

@@ -1,7 +1,8 @@
 
 <div class="movie-container">
     <div *ngFor="let movie of movies">
-        <img id="movie-poster" src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="movie-poster">
+        <p><a routerLink="./movie-details">
+            <img id="movie-poster" src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="movie-poster"></a></p>
         <h4 id="movie-title">{{ movie.title }}</h4>
         <!-- Usar o operador pipe para formatar a data em ano -->
         <h4 id="movie-date">{{ movie.release_date | date: 'yyyy' }}</h4>
@@ -12,3 +13,4 @@
 <!-- //t/p/: Caminho padrão para o tamanho da imagem. -->
 <!-- w200/: Indica a largura de 200 pixels para a imagem buscada. -->
 <!-- {{movie.poster_path}}: Caminho da imagem especifica do poster -->
+<!-- Seu componente de template HTML -->
