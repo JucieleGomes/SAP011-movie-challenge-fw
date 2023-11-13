@@ -10,3 +10,4 @@ export class MovieContainerComponent {
   // a home para poder usar em seu escopo
 @Input() movies: any []=[];
 }
+

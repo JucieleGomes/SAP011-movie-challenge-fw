@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  #pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    padding-bottom: 2px;
+  }
+  
+  #pagination {
+    list-style: none;
+    display: flex;
+  }
+  
+  .page-item {
+    margin-right: 10px; 
+  }
+  
+  .page-link {
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(218, 208, 208);
+    cursor: pointer;
+  }
+  
