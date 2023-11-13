@@ -14,13 +14,11 @@ import { MoviesDataBaseService } from './services/movies-data-base.service';
 import { MovieContainerComponent } from './components/pages/home/movie-container/movie-container.component';
 import { TopContentComponent } from './components/pages/home/top-content/top-content.component';
 import { PaginationComponent } from './components/pages/home/pagination/pagination.component';
-import { MovieDetailsComponent } from './components/pages/movie-details/movie-details.component';
-
+import { MovieDetailsComponent } from './components/pages/home/movie-details/movie-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MovieDetailsComponent,
     HeaderComponent,
     FooterComponent,
     ComponentsComponent,
@@ -28,7 +26,8 @@ import { MovieDetailsComponent } from './components/pages/movie-details/movie-de
     CommonComponentsComponent,
     MovieContainerComponent,
     TopContentComponent,
-    PaginationComponent
+    PaginationComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 
 import { Component,OnInit } from '@angular/core';
 import { MoviesDataBaseService } from 'src/app/services/movies-data-base.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,8 +15,7 @@ export class MovieDetailsComponent implements OnInit {
   constructor(
     private _SERVICE: MoviesDataBaseService,
     private route: ActivatedRoute,
-    private router: Router,
-  ) { }
+  ) {console.log(this.route.snapshot.paramMap);}
 
   ngOnInit(): void {
 
@@ -26,14 +25,17 @@ export class MovieDetailsComponent implements OnInit {
 
   showMovieDetails(){
     const id = Number(this.route.snapshot.paramMap.get("id"));
+    // const id = 507089;
+    console.log(this.route.snapshot.paramMap);
+    
     this._SERVICE.getMovie(id).subscribe(data => {
       this.movie = data;
-      this.router.navigate(['./movie-details', this.movie.id])
       console.log("movie-details", data);
     });
   }
   
 }
+
 
 
 

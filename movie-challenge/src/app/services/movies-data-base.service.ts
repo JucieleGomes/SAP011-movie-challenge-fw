@@ -16,8 +16,8 @@ export class MoviesDataBaseService {
     return this._HTTP.get(`${this._URL}${page}`);
   }
 
-  getMovie(id: number): Observable<any> {
-    return this._HTTP.get(`https://api.themoviedb.org/3/discover/movie/${id}?api_key=${this._KEY}`);
+  getMovie(id:number): Observable<any> {
+    return this._HTTP.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${this._KEY}`);
   }
 
   

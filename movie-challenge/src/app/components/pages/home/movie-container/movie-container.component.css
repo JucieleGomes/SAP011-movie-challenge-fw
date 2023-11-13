@@ -6,6 +6,8 @@
     justify-content: space-around;
     margin-top: -230px;
     text-align: center;
+    /* margin-left: 20px;
+    margin-right: 20px; */
 }
 
 #movie-title{
@@ -13,7 +15,7 @@
     font-style: normal;
     font-family: helvetica;
     word-break: break-word;
-    max-width: 80%;
+    max-width: 60%;
     margin: auto;
 }
 
@@ -27,10 +29,14 @@ h4{
 
 #movie-poster {
     transition: transform 0.3s ease; 
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #movie-poster:hover {
     transform: scale(1.1); 
 }
+
+
 
 

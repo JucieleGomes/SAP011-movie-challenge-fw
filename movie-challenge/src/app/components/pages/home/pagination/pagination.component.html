@@ -1,6 +1,6 @@
 <nav aria-label="pagination" id="pagination-container">
   <ul id="pagination">
-    <li class="page-item">
+    <li class="page-item" *ngIf="currentPage > 1">
       <a class="page-link" (click)="loadPreviousPage()">Previous</a>
     </li>
     <li class="page-item" *ngIf="currentPage > 1">
@@ -11,6 +11,15 @@
     </li>
     <li class="page-item" *ngIf="currentPage < totalPages">
       <a class="page-link" (click)="loadPage(currentPage + 1)">{{ currentPage + 1 }}</a>
+    </li>
+    <li class="page-item" *ngIf="currentPage < totalPages">
+      <a class="page-link" (click)="loadPage(currentPage + 1)">{{ currentPage + 2 }}</a>
+    </li>
+    <li class="page-item" *ngIf="currentPage < totalPages">
+      <a class="page-link" (click)="loadPage(currentPage + 1)">{{ currentPage + 3 }}</a>
+    </li>
+    <li class="page-item" *ngIf="currentPage < totalPages">
+      <a class="page-link" (click)="loadPage(currentPage + 1)">{{ currentPage + 4 }}</a>
     </li>
     <li class="page-item">
       <a class="page-link" (click)="loadNextPage()">Next</a>
