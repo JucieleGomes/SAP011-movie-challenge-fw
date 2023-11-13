@@ -1,1 +1,7 @@
-<p>movie-details works!</p>
+<div>
+    <a routerLink="/">Back to home</a> 
+    {{ movie.title }} 
+    <img id="movie-poster" src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}" alt="movie-poster">
+    {{movie.overview}}
+  </div>
+  
