@@ -1,0 +1,21 @@
+.top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa; 
+    padding: 10px;
+    margin-top: 50px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+  
+  .select-content {
+    margin-right: 10px;
+  }
+  
+  .form-control {
+    margin-right: 10px;
+  }
+  
+  .btn {
+    height: 38px; 
+  }
+}

@@ -9,5 +9,6 @@ export class MovieContainerComponent {
   //aqui o movie-container recebe movies do componente pai
   // a home para poder usar em seu escopo
 @Input() movies: any []=[];
+@Input() gender: any[] = [];
 }
 

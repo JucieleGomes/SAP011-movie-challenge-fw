@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { MovieContainerComponent } from './components/pages/home/movie-container
 import { TopContentComponent } from './components/pages/home/top-content/top-content.component';
 import { PaginationComponent } from './components/pages/home/pagination/pagination.component';
 import { MovieDetailsComponent } from './components/pages/home/movie-details/movie-details.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,16 +30,25 @@ import { MovieDetailsComponent } from './components/pages/home/movie-details/mov
     MovieContainerComponent,
     TopContentComponent,
     PaginationComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
+  
+
   providers: [
     MoviesDataBaseService
   ],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

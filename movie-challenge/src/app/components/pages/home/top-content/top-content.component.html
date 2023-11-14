@@ -1,2 +1,13 @@
-<p>top-content works!</p>
-
+<div class="top-content">
+    <select class="select-content">
+      <option value="">Categoria</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+    </select>
+    <select class="select-content">
+      <option value="">Ordenar</option>
+    </select>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>

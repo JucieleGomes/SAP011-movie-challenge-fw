@@ -15,11 +15,13 @@ export class HomeComponent implements OnInit {
   //O numero total de páginas é pego dinamicamente na API por isso ele é inicializado em zero.
   totalPages: number = 0;
   movies: any[] = [];
+  genres: any[] = [];
 
   constructor(private readonly _SERVICE: MoviesDataBaseService) {}
 
   ngOnInit(): void {
     this.loadMovies();
+    this.genderList();
   }
 
   onPageChanged(page: number) {
@@ -37,4 +39,20 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  genderList() {
+    this._SERVICE.getMovieByGender().subscribe({
+      next: (data:any) => {
+        this.genres = data.genres;
+      }
+    })
+  }
+
+  // orderBy(){
+  //   this._SERVICE.getSort().subscribe({
+  //     next: (data:any)=>{
+  //       console.log("sort:", data);
+  //     }
+  //   })
+  // }
 }

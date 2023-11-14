@@ -17,8 +17,18 @@ export class MoviesDataBaseService {
   }
 
   getMovie(id:number): Observable<any> {
-    return this._HTTP.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${this._KEY}`);
+    return this._HTTP.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${this._KEY}&language=pt`);
   }
+
+  getMovieByGender(): Observable<any> {
+    return this._HTTP.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this._KEY}&language=pt`);
+  }
+  
+  // getSort(): Observable<any> {
+  //   return this._HTTP.get(`https://api.themoviedb.org/3/discover/movie?api_key=${this._KEY}&include_adult=false&include_video=false&language=en-US&page=1`);
+  // }
+  
+  
 
   
   

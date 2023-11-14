@@ -1,7 +1,7 @@
 <nav aria-label="pagination" id="pagination-container">
   <ul id="pagination">
     <li class="page-item" *ngIf="currentPage > 1">
-      <a class="page-link" (click)="loadPreviousPage()">Previous</a>
+      <a class="page-link" (click)="loadPreviousPage()">Anterior</a>
     </li>
     <li class="page-item" *ngIf="currentPage > 1">
       <a class="page-link" (click)="loadPage(currentPage - 1)">{{ currentPage - 1 }}</a>
@@ -22,7 +22,7 @@
       <a class="page-link" (click)="loadPage(currentPage + 1)">{{ currentPage + 4 }}</a>
     </li>
     <li class="page-item">
-      <a class="page-link" (click)="loadNextPage()">Next</a>
+      <a class="page-link" (click)="loadNextPage()">Próxima</a>
     </li>
   </ul>
 </nav>

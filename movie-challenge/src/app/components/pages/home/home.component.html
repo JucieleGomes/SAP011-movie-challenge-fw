@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div class="movies">
+<app-top-content [genres] = "genres"></app-top-content>
+<div class="movies">    
     <app-movie-container [movies]="movies"></app-movie-container>
     <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
 </div>
