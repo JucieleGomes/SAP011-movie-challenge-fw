@@ -1,10 +1,24 @@
-<div *ngIf="movieLoaded; else spinner" >
+
+  <div *ngIf="movieLoaded; else spinner" class="card mb-3" style="max-width: 540px;">
     <a routerLink="/">Voltar a lista de filmes</a> 
-    {{ movie.title }} 
-    <img id="movie-poster" src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}" alt="movie-poster">
-    {{movie.overview}}
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}" alt="movie-poster">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"> {{ movie.title }} </h5>
+          <p class="card-text"> Nota {{ movie.vote_average  | number:'1.0-1'}}</p>
+          <p class="card-text"> Gênero {{ movie.genres[0].name }}</p>
+          <p class="card-text"> {{ movie.overview }}</p>
+          <p class="card-text"> Votos {{ movie.vote_count | number:'1.0-2'}}</p>
+        </div>
+      </div>
+    </div>
   </div>
+  
   <ng-template #spinner>
+    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
   </ng-template>
-  <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+  
   

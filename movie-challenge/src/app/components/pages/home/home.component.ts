@@ -44,6 +44,9 @@ export class HomeComponent implements OnInit {
     this._SERVICE.getMovieByGender().subscribe({
       next: (data:any) => {
         this.genres = data.genres;
+        console.log(data);
+        
+        
       }
     })
   }
