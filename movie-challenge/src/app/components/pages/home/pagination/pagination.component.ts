@@ -40,6 +40,4 @@ export class PaginationComponent {
   isSelectedPage(pageNumber: number): boolean {
     return pageNumber === this.currentPage;
   }
-
-
 }

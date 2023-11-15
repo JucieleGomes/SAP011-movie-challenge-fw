@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-top-content',
@@ -7,4 +7,5 @@ import { Component, Input, Output } from '@angular/core';
 })
 export class TopContentComponent {
 @Input() genres: any[] = [];
+@Input() orders: any[] = [];
 }
