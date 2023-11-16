@@ -11,8 +11,12 @@ export class MoviesDataBaseService {
 
   constructor(private readonly _HTTP: HttpClient) {}
 
-  getMovies(page: number): Observable<any> {
-    return this._HTTP.get(`${this._URL}${page}`);
+  getMovies(page: number, gener?: any): Observable<any> {
+    if (gener !== undefined) {
+      return this._HTTP.get(`${this._URL}${page}&with_genres=${gener}`);
+    } else {
+      return this._HTTP.get(`${this._URL}${page}`);
+    }
   }
 
   getMovie(id: number): Observable<any> {

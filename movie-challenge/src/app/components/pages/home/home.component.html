@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-top-content [genres]="genres"></app-top-content>
+<app-top-content [genres]="genres" (getSelectedGenerEmitter)="getSelectedGener($event)"></app-top-content>
 <div class="movies">    
     <app-movie-container [movies]="movies"></app-movie-container>
     <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
