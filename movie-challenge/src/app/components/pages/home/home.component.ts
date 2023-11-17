@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadMoviesWithGener(){
-    this._SERVICE.getMovies(this.currentPage, this.selectedGenreId).subscribe({
+    this._SERVICE.getMovies(this.currentPage, this.selectedGenreId, ).subscribe({
       next: (data: any) => {
         console.log(data);
         this.totalPages = data.total_pages;
