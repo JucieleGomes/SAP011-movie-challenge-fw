@@ -31,7 +31,7 @@ export class MoviesDataBaseService {
     return this._HTTP.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&with_genres=${genreId}&api_key=${this._KEY}`);
   }
 
-  getSort(sortBy:string): Observable<any> {
+  getSort(sortBy:any): Observable<any> {
     return this._HTTP.get(`https://api.themoviedb.org/3/discover/movie?api_key=${this._KEY}&include_adult=false&include_video=false&language=pt-US&page=1&sort_by=${sortBy}`);
   }
 }

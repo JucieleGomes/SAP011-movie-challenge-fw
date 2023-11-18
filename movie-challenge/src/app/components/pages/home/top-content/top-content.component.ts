@@ -7,23 +7,44 @@ import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, OnInit }
 })
 export class TopContentComponent implements OnInit {
   @Output() getSelectedGenerEmitter: EventEmitter<string> = new EventEmitter<string>();
-  // @Output() getMorePopularyEmitter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() getSelectedOrderEmitter: EventEmitter<string> = new EventEmitter<string>();
   @Input() genres: any[] = [];
-  @Input() orders: any[] = [];
   @ViewChild("filter") filter!: ElementRef;
-  // @ViewChild("morePopulary") morePopulary!: ElementRef;
+  @ViewChild("order") order!: ElementRef;
+
+  orderList: any[] = [
+    {
+      order: "popularity.desc",
+      name: "Mais populares",
+    },
+
+    {
+      order: "popularity.asc",
+      name: "Menos populares",
+    },
+
+    { order: "primary_release_date.asc",
+      name: "Menos recentes", 
+    },
+
+    {
+      order: "primary_release_date.desc",
+      name: "Mais recentes",
+    }
+  ]
 
   constructor() {}
 
   ngOnInit(): void {}
 
   getSelectedGener(event: any) {
-    console.log(event);
+    console.log("genero:", event);
     this.getSelectedGenerEmitter.emit(event.target.value);
   }
 
-  // getMorePopulary(event: any) {
-  //   console.log(event); 
-  //   this.getMorePopularyEmitter.emit(event.target.value);
-  // }
+  getSelectedOrder(event: any) {
+   this.getSelectedOrderEmitter.emit(event.target.value); 
+   console.log("EVENTO GET SELECTED ORDER TOP",event.target.value);
+   
+  }
 }

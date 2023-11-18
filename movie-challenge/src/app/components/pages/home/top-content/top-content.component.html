@@ -4,11 +4,9 @@
     <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
   </select>
 
-  <select class="select-content">
-    <!-- #morePopulary (change)="getMorePopulary($event)" -->
+  <select class="select-content"  #order (change)="getSelectedOrder($event)">
     <option value="" disabled selected>Ordenar</option>
-    <option [value]="orders">Mais populares</option>
-    <option [value]="orders">Menos populares</option>
+    <option *ngFor="let order of orderList"  [value] ="order.order">{{order.name}}</option>
   </select>    
 
   <form class="d-flex">
