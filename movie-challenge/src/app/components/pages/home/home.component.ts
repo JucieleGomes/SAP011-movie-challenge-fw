@@ -21,11 +21,12 @@ export class HomeComponent implements OnInit {
   selectedOrder: any;
 
   constructor(private readonly _SERVICE: MoviesDataBaseService) {}
-
+ //Chama os serviços assim que o servidor é inciado
   ngOnInit(): void {
-       this.genderList();
-       this.loadMovies();
+    this.genderList();
+    this.loadMovies();
   }
+  
  //Atualiza a selectedOrder com o valor do evento e chama loadMoviesWhitSelectedOrder.
   getSelectedOrder(event: string) {
     this.selectedOrder = event;
@@ -39,13 +40,20 @@ export class HomeComponent implements OnInit {
   }
 
 //Atualiza currentPage com o número da página.
-  onPageChanged(page: number) {
-    console.log(page);
-       this.currentPage = page;
-       this.loadMovies();
-       this.loadMoviesWithGener();
-       this.loadMoviesWhitSelectedOrder();
+onPageChanged(page: number) {
+  console.log(page);
+  this.currentPage = page;
+  //atualiza a paginação de acordo com a escolha de genero e ordenação
+  if (this.selectedGenreId && this.selectedOrder) {
+    this.  loadMoviesWhitGenerAndOrder();
+  } else if (this.selectedGenreId) {
+    this.loadMoviesWithGener();
+  } else if (this.selectedOrder) {
+    this.loadMoviesWhitSelectedOrder();
+  } else {
+    this.loadMovies();
   }
+}
 
 //Chama o serviço para obter filmes com a página atual.
   loadMovies() {
@@ -67,13 +75,24 @@ export class HomeComponent implements OnInit {
   }
 // Chama o serviço para obter filmes com a ordem selecionada.
   loadMoviesWhitSelectedOrder() {
-    this._SERVICE.getSort(this.selectedOrder).subscribe({
+    this._SERVICE.getMovies(this.currentPage, undefined, this.selectedOrder).subscribe({
       next: (data: any) => {
         this.movies = data.results;
-        console.log("TESTE");
       }
     });
   }
+
+//Obtém filmes por gênero e ordenação selecioanada chamando o serviço.
+  loadMoviesWhitGenerAndOrder() {
+    this._SERVICE.getMovies(this.currentPage, this.selectedGenreId, this.selectedOrder).subscribe({
+      next: (data: any) => {
+        this.movies = data.results;
+        console.log("genero e ordem", data);
+        
+      }
+    });
+  }
+
 //Obtém a lista de gêneros chamando o serviço.
   genderList() {
     this._SERVICE.getGenderList().subscribe({
@@ -89,17 +108,6 @@ export class HomeComponent implements OnInit {
         this.moviesByGender = data;
         this.totalPages = data.total_pages;
         this.movies = data.results; 
-      }
-    })
-  }
-
-  //Obtém filmes ordenados chamando o serviço.
-  orderBy(event: string) {
-    this._SERVICE.getSort(event).subscribe({
-      next: (data: any) => {
-        this.selectedOrder = event;
-        this.loadMoviesWhitSelectedOrder();
-        console.log("ORDER BY Filmes ordenados:", data);
       }
     })
   }
