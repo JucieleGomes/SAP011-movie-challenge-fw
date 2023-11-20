@@ -1,5 +1,6 @@
 <app-header></app-header>
-<app-top-content [genres]="genres" [orders]="orders" (getSelectedGenerEmitter)="getSelectedGener($event)" (getSelectedOrderEmitter)="getSelectedOrder($event)"></app-top-content>
+<app-top-content [genres]="genres" [orders]="orders" (getSelectedGenerEmitter)="getSelectedGener($event)" (getSelectedOrderEmitter)="getSelectedOrder($event)"
+[search]="search" (getSearchEmitter)="getSearch($event)" (searchButtonClick)="searchMoviesList()"></app-top-content>
 <div class="movies">    
     <app-movie-container [movies]="movies"></app-movie-container>
     <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
