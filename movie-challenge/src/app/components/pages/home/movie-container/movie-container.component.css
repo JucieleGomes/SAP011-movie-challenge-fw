@@ -14,13 +14,15 @@
     font-size: 15px;
     font-style: normal;
     font-family: helvetica;
-    word-break: break-word;
     max-width: 60%;
     margin: auto;
+    margin-top: 10px;
 }
 
 #movie-date{
  margin-top: 5px;
+ font-size: 15px;
+ margin-bottom: 50px;
 }
 
 h4{
@@ -32,10 +34,20 @@ h4{
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 5px ;
+    width: 200px;
+    height: 300px;
 }
 
 #movie-poster:hover {
     transform: scale(1.1); 
+}
+
+.card-img-top{
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    width: 200px;
+    height: 300px;
 }
 
 

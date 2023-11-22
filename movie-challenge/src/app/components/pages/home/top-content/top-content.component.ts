@@ -54,7 +54,7 @@ export class TopContentComponent implements OnInit {
     }
   ]
   
-
+  
   constructor() {}
 
   ngOnInit(): void {}
@@ -71,8 +71,9 @@ export class TopContentComponent implements OnInit {
   getSearch(event: any) {
     this.getSearchEmitter.emit(event.target.value);    
    }
+
   //Emite o clique no botão para acessar o e.value do search
-   onSearchButtonClick() {
+  onSearchButtonClick() {
     this.searchButtonClick.emit();
   }
 

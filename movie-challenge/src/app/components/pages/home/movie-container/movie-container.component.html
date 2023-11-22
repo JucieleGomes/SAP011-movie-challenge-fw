@@ -1,9 +1,15 @@
 <div class="movie-container">
     <div *ngFor="let movie of movies">
-        <a class="movie-router" routerLink="./movie-details/{{movie.id}}"> 
-            <img id="movie-poster" src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="movie-poster"></a>
+      <a class="movie-router" routerLink="./movie-details/{{movie.id}}">
+        <div *ngIf="movie.poster_path; else noImage">
+          <img id="movie-poster" src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="movie-poster">
+        </div></a>
+        <ng-template #noImage>
+          <img src="assets/notFound.jpg" class="card-img-top" alt="Film Image">
+        </ng-template>
         <h4 id="movie-title">{{ movie.title }}</h4>
         <!-- Usar o operador pipe para formatar a data em ano -->
         <h4 id="movie-date">{{ movie.release_date | date: 'yyyy' }}</h4>
     </div>
-</div>
+  </div>
+  

@@ -47,7 +47,18 @@ onPageChanged(page: number) {
     this.loadMovies();
   }
 }
-//Chama o serviço para obter filmes com a página atual.
+
+//Chama o serviço para obter filmes com a página atual e de acordo com o filtro e ordenação
+//selecionado.
+// loadMovies() {
+//   this._SERVICE.getMovies(this.currentPage, this.selectedGenreId?this.selectedGenreId:undefined, this.selectedOrder? this.selectedOrder:undefined).subscribe({
+//     next: (data: any) => {
+//       this.totalPages = data.total_pages;
+//       this.movies = data.results;
+//     }
+//   });
+// }
+
 loadMovies() {
   this._SERVICE.getMovies(this.currentPage).subscribe({
     next: (data: any) => {
@@ -84,8 +95,7 @@ getMoviesWhithGender(id:number){
   })
 }
 
-
-// Chama o serviço para obter filmes com a página atual e o gênero selecionado.
+//Chama o serviço para obter filmes com a página atual e o gênero selecionado.
 loadMoviesWithGener(){
   this._SERVICE.getMovies(this.currentPage, this.selectedGenreId, ).subscribe({
     next: (data: any) => {
@@ -99,9 +109,10 @@ loadMoviesWithGener(){
   getSelectedOrder(event: string) {
     this.selectedOrder = event;
     this.loadMoviesWhitSelectedOrder();
+    // this.loadMovies();
   }
 
-// Chama o serviço para obter filmes com a página atual e ordem selecionada.
+//Chama o serviço para obter filmes com a página atual e ordem selecionada.
 loadMoviesWhitSelectedOrder() {
   this._SERVICE.getMovies(this.currentPage, undefined, this.selectedOrder).subscribe({
     next: (data: any) => {
@@ -110,12 +121,10 @@ loadMoviesWhitSelectedOrder() {
   });
 }
 
-
 //Atualiza a searchMovie com o valor do evento .
 getSearch(event:any){
   this.searchMovie = event; 
 }
-
 
 //Verifica se o o value buscado está presente na lista de filmes
 searchMoviesList() {
