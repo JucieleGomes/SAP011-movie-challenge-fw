@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { MoviesDataBaseService } from 'src/app/services/movies-data-base.service';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpRequest } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('HomeComponent', () => {
