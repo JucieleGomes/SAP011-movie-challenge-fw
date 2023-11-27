@@ -1,5 +1,5 @@
 <div id="body" *ngIf="movieLoaded; else spinner" class="card mb-3" style="max-width: 850px;">
- <p></p> <a routerLink="/">
+ <p></p> <a routerLink="/" [queryParams]="{genres:genres, order:order, pageNumber:pageNumber}">
     <img class="Back-to-home" src="assets/159605.png" alt="Back-to-home">
   </a> 
   <div class="row g-0">

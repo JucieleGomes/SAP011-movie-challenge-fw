@@ -3,9 +3,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MovieDetailsComponent } from './movie-details.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MoviesDataBaseService } from 'src/app/services/movies-data-base.service';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 
 describe('MovieDetailsComponent', () => {
   let component: MovieDetailsComponent;
@@ -47,6 +48,19 @@ describe('MovieDetailsComponent', () => {
         {
           provide: MoviesDataBaseService,
           useValue: mockMovie
+        },
+        {
+          provide:ActivatedRoute, 
+          useValue: {
+            snapshot: {
+              paramMap:{
+                // get:()=>{return {"id":1}}
+                get: ()=>of({
+                  "id":1
+                })
+              } 
+            }
+          }
         }
       ],
       schemas: [

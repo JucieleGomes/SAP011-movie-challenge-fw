@@ -1,11 +1,11 @@
 <div class="top-content" *ngIf="genres">
   <select class="select-content" #filter (change)="getSelectedGener($event)">
-    <option value="0"disabled selected>Gênero</option>
+    <option value="0"disabled selected>Selecionar gênero</option>
     <option *ngFor="let genre of genres" [value]= "genre.id">{{ genre.name }}</option>
   </select>
 
   <select class="select-content"  #order (change)="getSelectedOrder($event)">
-    <option value="" disabled selected>Ordenar</option>
+    <option value="" disabled selected>Selecionar ordenação</option>
     <option *ngFor="let order of orderList"  [value]= "order.order">{{ order.name }}</option>
   </select>    
 

@@ -13,6 +13,9 @@ export class MovieDetailsComponent implements OnInit {
 
  movie?: any;
  movieLoaded: any;
+ genres?: string = '';
+ order?: string = '';
+ pageNumber?: string = '';
 
 
   constructor(
@@ -24,8 +27,11 @@ export class MovieDetailsComponent implements OnInit {
   }
    
   ngOnInit(): void {
-
-    this.showMovieDetails()
+    console.log("teste", this.route.snapshot.queryParamMap.get('order'));
+    this.genres = this.route.snapshot.queryParamMap.get('genres')?.toString();
+    this.order = this.route.snapshot.queryParamMap.get('order')?.toString();
+    this.pageNumber = this.route.snapshot.queryParamMap.get('pageNumber')?.toString();
+    this.showMovieDetails() 
   }
 
   showMovieDetails(){
