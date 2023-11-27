@@ -18,12 +18,11 @@ export class HomeComponent implements OnInit {
   genres: any[] = [];
   orders: any;
   moviesByGender: string | undefined;
-  selectedGenreId?: any = 0;
+  selectedGenreId?: string;
   // selectedOrder: any;
   search: string = '';
   searchMovie: any;
   allMovies:any[] = [];
-  selectedGenre?: string;
   selectedOrder?: string = 'popularity.desc';
 
 
@@ -41,7 +40,7 @@ export class HomeComponent implements OnInit {
       queryParams.get('order') !== undefined &&
       queryParams.get('pageNumber') !== undefined
     ) {
-      this.selectedGenre = queryParams.get('genre')?.toString();
+      this.selectedGenreId = queryParams.get('genre')?.toString();
       this.selectedOrder = queryParams.get('order')?.toString();
 
       const pageNumberParam = queryParams.get('pageNumber');
@@ -124,12 +123,12 @@ genderList() {
 // Atualiza selectedGenreId com o valor do evento e chama getMoviesWhithGender.
 getSelectedGener(event:any){
   console.log(event);
-     this.selectedGenreId = Number(event);
-     this.getMoviesWhithGender(Number(event)); 
+     this.selectedGenreId = event;
+     this.getMoviesWhithGender(event); 
 }
 
 //Obtém filmes por gênero chamando o serviço.
-getMoviesWhithGender(id:number){
+getMoviesWhithGender(id:string){
   this._SERVICE.getMoviesByGender(id).subscribe({
     next: (data:any)=>{
       this.moviesByGender = data;

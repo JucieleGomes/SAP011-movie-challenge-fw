@@ -38,7 +38,7 @@ export class MoviesDataBaseService {
     return this._HTTP.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this._KEY}&language=pt`);
   }
 
-  getMoviesByGender(genreId: number): Observable<any> {
+  getMoviesByGender(genreId: string): Observable<any> {
     return this._HTTP.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&with_genres=${genreId}&api_key=${this._KEY}`);
   }
 }
