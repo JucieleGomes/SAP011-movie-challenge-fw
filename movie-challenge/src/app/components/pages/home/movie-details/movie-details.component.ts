@@ -12,7 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class MovieDetailsComponent implements OnInit {
 
  movie?: any;
- movieLoaded: any;
+ movieLoaded: boolean = false;
  genres?: string = '';
  order?: string = '';
  pageNumber?: string = '';
@@ -27,7 +27,6 @@ export class MovieDetailsComponent implements OnInit {
   }
    
   ngOnInit(): void {
-    console.log("teste", this.route.snapshot.queryParamMap.get('order'));
     this.genres = this.route.snapshot.queryParamMap.get('genres')?.toString();
     this.order = this.route.snapshot.queryParamMap.get('order')?.toString();
     this.pageNumber = this.route.snapshot.queryParamMap.get('pageNumber')?.toString();
