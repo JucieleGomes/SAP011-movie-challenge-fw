@@ -21,6 +21,7 @@ ngOnChanges(changes: SimpleChanges): void {
   if (this.order || this.genres) {
     //adiciona o genero e ordem esclhido a URL
     this.queryParams = `\?order=${this.order}${this.genres !== undefined ? `&genre=${this.genres}` : ``}`
+    console.log('Query Params:', this.queryParams);
   }
 }
 }

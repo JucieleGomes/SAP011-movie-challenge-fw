@@ -55,6 +55,7 @@ export class TopContentComponent implements OnInit {
   ]
   
   
+  
   constructor() {}
 
   ngOnInit(): void {}
@@ -79,7 +80,7 @@ export class TopContentComponent implements OnInit {
 
   //Emite os eventos vazios para limpar as buscas
   clear(){
-    this.getSelectedGenerEmitter.emit("0");
+    this.getSelectedGenerEmitter.emit("");
     this.getSelectedOrderEmitter.emit("");
     this.getSearchEmitter.emit("");
   }

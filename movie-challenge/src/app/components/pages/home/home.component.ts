@@ -36,11 +36,11 @@ export class HomeComponent implements OnInit {
 
     const queryParams = this.route.snapshot.queryParamMap;
     if (
-      queryParams.get('genre') !== undefined &&
+      queryParams.get('genres') !== undefined &&
       queryParams.get('order') !== undefined &&
       queryParams.get('pageNumber') !== undefined
     ) {
-      this.selectedGenreId = queryParams.get('genre')?.toString();
+      this.selectedGenreId = queryParams.get('genres')?.toString();
       this.selectedOrder = queryParams.get('order')?.toString();
 
       const pageNumberParam = queryParams.get('pageNumber');
@@ -58,22 +58,34 @@ export class HomeComponent implements OnInit {
   onPageChanged(page: number) {
     console.log(page);
     this.currentPage = page;
-    if(this.selectedGenreId&&this.selectedOrder){
-      this.loadMoviesWithGenderAndOrder();
-    } else if (this.selectedGenreId) {
-      this.loadMoviesWithGender(); 
-    } else if (this.selectedOrder) {
-      this.loadMoviesWithOrder(); 
-    } else {
+    // if(this.selectedGenreId&&this.selectedOrder){
+    //   this.loadMoviesWithGenderAndOrder();
+    // } else if (this.selectedGenreId) {
+    //   this.loadMoviesWithGender(); 
+    // } else if (this.selectedOrder) {
+    //   this.loadMoviesWithOrder(); 
+    // } else {
       this.loadMovies();
-    }
+    // }
   }
   
 
 //Chama o serviço para obter filmes com a página atual e de acordo com o filtro e ordenação
 //selecionado.
+// loadMovies() {
+//   this._SERVICE.getMovies(this.currentPage, this.selectedGenreId, this.selectedOrder).subscribe({
+//     next: (data: any) => {
+//       this.totalPages = data.total_pages;
+//       this.movies = data.results;
+//     }
+//   });
+// }
+
 loadMovies() {
-  this._SERVICE.getMovies(this.currentPage).subscribe({
+  const genreParam = this.selectedGenreId ? this.selectedGenreId : undefined;
+  const orderParam = this.selectedOrder ? this.selectedOrder : undefined;
+
+  this._SERVICE.getMovies(this.currentPage, genreParam, orderParam).subscribe({
     next: (data: any) => {
       this.totalPages = data.total_pages;
       this.movies = data.results;
@@ -82,39 +94,39 @@ loadMovies() {
 }
 
 
-loadMoviesWithGender() {
-  this._SERVICE.getMovies(this.currentPage, this.selectedGenreId).subscribe({
-    next: (data: any) => {
-      this.totalPages = data.total_pages;
-      this.movies = data.results;
-    }
-  });
-}
 
-loadMoviesWithOrder() {
-  this._SERVICE.getMovies(this.currentPage, undefined, this.selectedOrder).subscribe({
-    next: (data: any) => {
-      this.totalPages = data.total_pages;
-      this.movies = data.results;
-    }
-  });
-}
+// loadMoviesWithGender() {
+//   this._SERVICE.getMovies(this.currentPage, this.selectedGenreId).subscribe({
+//     next: (data: any) => {
+//       this.totalPages = data.total_pages;
+//       this.movies = data.results;
+//     }
+//   });
+// }
 
-loadMoviesWithGenderAndOrder() {
-  this._SERVICE.getMovies(this.currentPage, this.selectedGenreId, this.selectedOrder).subscribe({
-    next: (data: any) => {
-      this.totalPages = data.total_pages;
-      this.movies = data.results;
-    }
-  });
-}
+// loadMoviesWithOrder() {
+//   this._SERVICE.getMovies(this.currentPage, undefined, this.selectedOrder).subscribe({
+//     next: (data: any) => {
+//       this.totalPages = data.total_pages;
+//       this.movies = data.results;
+//     }
+//   });
+// }
+
+// loadMoviesWithGenderAndOrder() {
+//   this._SERVICE.getMovies(this.currentPage, this.selectedGenreId, this.selectedOrder).subscribe({
+//     next: (data: any) => {
+//       this.totalPages = data.total_pages;
+//       this.movies = data.results;
+//     }
+//   });
+// }
 
 //Obtém a lista de gêneros chamando o serviço.
 genderList() {
   this._SERVICE.getGenderList().subscribe({
     next: (data: any) => {
-      console.log(data);
-      
+      console.log(data); 
       this.genres = data.genres;  
     }
   });
@@ -124,7 +136,8 @@ genderList() {
 getSelectedGener(event:any){
   console.log(event);
      this.selectedGenreId = event;
-     this.getMoviesWhithGender(event); 
+     this.getMoviesWhithGender(event);
+     this.loadMovies();
 }
 
 //Obtém filmes por gênero chamando o serviço.
@@ -141,7 +154,7 @@ getMoviesWhithGender(id:string){
  //Atualiza a selectedOrder com o valor do evento e chama loadMoviesWhitSelectedOrder.
   getSelectedOrder(event: string) {
     this.selectedOrder = event;
-    this.loadMoviesWithOrder();
+    // this.loadMoviesWithOrder();
     this.loadMovies();
   }
 
