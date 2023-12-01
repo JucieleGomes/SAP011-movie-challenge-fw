@@ -32,7 +32,7 @@ describe('HomeComponent', () => {
             get: ()=> of({
               "genre":"genre1",
               "order": "order1",
-              "pageNumber": "1"
+              "pageNumber": 1,
             })}}
       }
         },
@@ -55,4 +55,43 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should update currentPage when onPageChanged is called', () => {
+    const page = 2;
+    component.onPageChanged(page);
+    expect(component.currentPage).toEqual(page);
+  });
+
+  it('should call loadMovies when onPageChanged is called', () => {
+    spyOn(component, 'loadMovies');
+    const page = 2;
+    component.onPageChanged(page);
+    expect(component.loadMovies).toHaveBeenCalled();
+  });
+
+  it('should call getMovies with correct parameters when loadMovies is called', () => {
+    spyOn(_SERVICE, 'getMovies').and.returnValue(of({ total_pages: 2, results: [] }));
+    const page = 2;
+    const genre = 'genre1';
+    const order = 'order1';
+    component.currentPage = page;
+    component.selectedGenreId = genre;
+    component.selectedOrder = order;
+  
+    component.loadMovies();
+  
+    expect(_SERVICE.getMovies).toHaveBeenCalledWith(page, genre, order);
+  });
+  
+  it('should update totalPages and movies when loadMovies is called', () => {
+    const responseData = { total_pages: 2, results: [{ title: 'Movie 1' }, { title: 'Movie 2' }] };
+    spyOn(_SERVICE, 'getMovies').and.returnValue(of(responseData));
+  
+    component.loadMovies();
+  
+    expect(component.totalPages).toEqual(responseData.total_pages);
+    expect(component.movies).toEqual(responseData.results);
+  });
+  
+
 });
