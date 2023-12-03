@@ -18,7 +18,7 @@ export class TopContentComponent implements OnInit {
   @ViewChild("order") order!: ElementRef;
   @ViewChild("search") search!: ElementRef;
 
-  //Array com a lista de ordenações da API
+
   orderList: any[] = [
     {
       order: "popularity.desc",
