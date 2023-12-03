@@ -18,4 +18,25 @@ describe('MovieContainerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set queryParams correctly when order, genres, and pageNumber are provided', () => {
+    component.order = 'popularity.desc';
+    component.genres = '28';
+    component.pageNumber = '1';
+
+    component.ngOnChanges({} as any);
+
+    expect(component.queryParams).toEqual({
+      order: 'popularity.desc',
+      genres: '28',
+      pageNumber: '1'
+    });
+  });
+
+  it('should set queryParams to an empty object when no order, genres, or pageNumber is provided', () => {
+    component.ngOnChanges({} as any);
+
+    expect(component.queryParams).toEqual({});
+  });
 });
+
