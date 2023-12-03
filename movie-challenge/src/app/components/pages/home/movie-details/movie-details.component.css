@@ -1,9 +1,11 @@
 #body {
-    background-color: black;
+    background-color:   #89498A;
     width: 100%;
-    margin: auto; 
-    display: flex;
-    align-items: center; 
+    margin-top: 60px; 
+    margin-left: 250px;
+    margin-right: 100px;
+    margin-bottom: 200px;
+  
 }
 .img {
     margin-right: 60px;
@@ -20,18 +22,66 @@
 .card-body {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    color: white; 
+    color: rgb(15, 15, 15); 
     margin-left: 60px;
     margin-right: 60px;
     margin-top: 50px;
+    font-weight: 600;
 }
 
-.Back-to-home{
+
+#movie-title{
+    text-align: left;
+    font-size: 30px;
+    margin-top: -20px;
+    font-weight: bold;
+}
+
+#note-movie{
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#vote-average{
+    margin-left: 120px;
+    margin-top: -15px;
+    font-weight:bold;
+
+}
+
+#release-date{
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: bold;
+
+}
+
+  .back-link {
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center; 
+    color: white;  
+    text-decoration: none;
+    margin-top: -35px;
+    margin-bottom: 10px;
+    margin-left: -10px;
+}
+
+.Back-to-home {
     width: 30px;
     height: 30px;
-    background-color: aliceblue;
-    margin-left: -480px;
+    background-color: black;
+    margin-right: 10px;
+}
+
+.back-link:hover {
+    color: #89498A; 
+  } 
+  
+#gender{
+    font-weight: bold;
 }
 

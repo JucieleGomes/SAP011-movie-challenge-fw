@@ -4,4 +4,5 @@
 <div class="movies">   
     <app-movie-container [movies]="movies" [genres]="selectedGenreId" [order]="selectedOrder" [pageNumber]="currentPage.toString()"></app-movie-container>
     <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
+    <app-footer></app-footer>
 </div>

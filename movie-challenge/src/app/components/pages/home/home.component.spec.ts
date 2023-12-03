@@ -56,6 +56,10 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should call loadMovies on initialization', () => {
+    spyOn(component, 'loadMovies');
+  });
+  
   it('should update currentPage when onPageChanged is called', () => {
     const page = 2;
     component.onPageChanged(page);
@@ -92,6 +96,27 @@ describe('HomeComponent', () => {
     expect(component.totalPages).toEqual(responseData.total_pages);
     expect(component.movies).toEqual(responseData.results);
   });
-  
+
+  describe('Search Functionality', () => {
+    it('should filter movies based on search term', () => {
+ 
+      const searchValue = 'Avengers';
+      const mockMovies = [
+        { title: 'Avengers: Endgame', },
+        { title: 'Spider-Man: Far From Home',  },
+      ];
+
+      spyOn(_SERVICE, 'getMovies').and.returnValue(of({ results: mockMovies }));
+
+      component.searchMovie = searchValue;
+      component.searchMoviesList();
+
+      expect(_SERVICE.getMovies).toHaveBeenCalledWith(component.currentPage);
+      expect(component.allMovies).toEqual(mockMovies);
+
+      expect(component.movies.length).toBeGreaterThan(0);
+      expect(component.movies.every(movie => movie.title.toLowerCase().includes(searchValue.toLowerCase()))).toBe(true);
+    });
+  });
 
 });

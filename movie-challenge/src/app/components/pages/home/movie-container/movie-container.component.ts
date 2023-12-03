@@ -13,15 +13,16 @@ export class MovieContainerComponent implements OnChanges{
 @Input() genres: string | undefined = '';
 @Input() order: string | undefined = '';
 @Input() pageNumber: string | undefined = '';
-queryParams: string = '';
+queryParams: any = {};
 
 constructor() { }
 ngOnChanges(changes: SimpleChanges): void {
-  console.log({ a: this.genres, b: this.order });
   if (this.order || this.genres) {
-    //adiciona o genero e ordem esclhido a URL
-    this.queryParams = `\?order=${this.order}${this.genres !== undefined ? `&genre=${this.genres}` : ``}`
-    console.log('Query Params:', this.queryParams);
+    this.queryParams = {
+      order: this.order,
+      genres: this.genres,
+      pageNumber: this.pageNumber
+    }
   }
 }
 }

@@ -1,18 +1,21 @@
 <div id="body" *ngIf="movieLoaded; else spinner" class="card mb-3" style="max-width: 850px;">
- <p></p> <a routerLink="/" [queryParams]="{genres:genres, order:order, pageNumber:pageNumber}">
-    <img class="Back-to-home" src="assets/159605.png" alt="Back-to-home">
-  </a> 
+  <a routerLink="/" [queryParams]="{genres:genres, order:order, pageNumber:pageNumber}"  class="back-link">
+    <img class="Back-to-home" src="assets/back-home.png" alt="Back-to-home"> Voltar
+  </a>
   <div class="row g-0">
     <div class="col-md-4">
       <img class="img" src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}" alt="movie-poster">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"> {{ movie.title }} </h5>
-        <p class="card-text"> Nota {{ movie.vote_average  | number:'1.0-1'}}</p>
-        <p class="card-text"> Gênero {{ movie.genres[0].name }}</p>
+        <div id="note-movie">
+          <h5 id="movie-title" class="card-title"> {{ movie.title }} </h5>
+          <p id="vote-average" class="card-text"> Nota: {{ movie.vote_average  | number:'1.0-1'}}</p>
+        </div>
+        <p id="release-date">{{ movie.release_date | date: 'yyyy' }}</p>
+        <!-- <p id="vote-count" class="card-text"> Votos {{ movie.vote_count | number:'1.0-2'}}</p> -->
+        <p id="gender" class="card-text"> Gênero: {{ movie.genres[0].name }}</p>
         <p class="card-text"> {{ movie.overview }}</p>
-        <p class="card-text"> Votos {{ movie.vote_count | number:'1.0-2'}}</p>
       </div>
     </div>
   </div>
