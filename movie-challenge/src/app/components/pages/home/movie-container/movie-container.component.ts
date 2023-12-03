@@ -17,7 +17,7 @@ queryParams: any = {};
 
 constructor() { }
 ngOnChanges(changes: SimpleChanges): void {
-  if (this.order || this.genres) {
+  if (this.order || this.genres || this.pageNumber) {
     this.queryParams = {
       order: this.order,
       genres: this.genres,
