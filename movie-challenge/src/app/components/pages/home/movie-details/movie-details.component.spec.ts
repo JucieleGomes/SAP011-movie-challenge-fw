@@ -87,4 +87,29 @@ describe('MovieDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should initialize movie details', () => {
+  //   spyOn(moviesDataBaseService, 'getMovie').and.callThrough();
+
+  //   component.ngOnInit();
+
+  //   expect(component.genres).toEqual('terror,animação');
+  //   expect(component.order).toEqual('asc');
+  //   expect(component.pageNumber).toEqual('1');
+  //   expect(moviesDataBaseService.getMovie).toHaveBeenCalledWith(1);
+  // });
+
+  // it('should show movie details and hide spinner', () => {
+  //   spyOn(moviesDataBaseService, 'getMovie').and.callThrough();
+  //   spyOn(_SPINNER, 'hide');
+
+  //   component.showMovieDetails();
+
+  //   expect(moviesDataBaseService.getMovie).toHaveBeenCalledWith(1);
+
+  //   fixture.whenStable().then(() => {
+  //     expect(_SPINNER.hide).toHaveBeenCalled();
+  //     expect(component.movieLoaded).toBeTrue();
+  //   });
+  // });
 });
