@@ -11,6 +11,7 @@
 - [Testes unitários](#testes-unitários)
 - [Ferramentas e tecnologias utilizadas](#ferramentas-e-tecnologias-utilizadas)
 - [Critérios mínimos de aceitação](#critérios-mínimos-de-aceitação)
+- [Link para o projeto](#link-para-o-projeto)
 - [Desenvolvedora](#desenvolvedora)
   
 ...
@@ -136,6 +137,10 @@ O projeto foi concluído com cerca de testes 80% de cobertura
 - [x]  Mostrar detalhes do filme
 - [x]  Testes Unitários
 - [x]  Utilizar um framework
+
+
+##  🔗 Link para o projeto
+Conheça o [myMovie](https://my-movie-nu.vercel.app/)
 
 
 
